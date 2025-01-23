@@ -32,10 +32,13 @@ copy_dir() {
   from=$1
   to=$2
 
-  pushd $from > /dev/null
+  pushd "$from" > /dev/null
   find . -mindepth 1 -maxdepth 1 -type d | while read -r dir; do
-    execute rm -rf "$to/$dir"
-    execute cp -r "$dir" "$to/$dir"
+    # Remove redundant /./ from the destination directory path
+    dest_dir="$to/$(basename "$dir")"
+    
+    execute rm -rf "$dest_dir"
+    execute cp -r "$dir" "$dest_dir"
   done
 
   popd > /dev/null
@@ -44,10 +47,13 @@ copy_dir() {
 copy_file() {
   from=$1
   to=$2
-  name=$(basename $from)
+  name=$(basename "$from")
 
-  execute rm $to/$name
-  execute cp $from $to/$name
+  # Remove redundant /./ from the destination file path
+  dest_file="$to/$name"
+  
+  execute rm "$dest_file"
+  execute cp "$from" "$dest_file"
 }
 
 copy_dir ./env/.config $XDG_CONFIG_HOME
