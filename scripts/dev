@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+
+git config --global user.email "jonaskleinebecker@gmail.com"
+git config --global user.name "Jonas Kleinebecker"
+
+# luarocks
+pushd /tmp/luarocks-3.11.0
+(
+    wget --output-document /tmp/luarocks.tar.gz https://luarocks.org/releases/luarocks-3.11.0.tar.gz
+    tar zxpf /tmp/luarocks.tar.gz -C /tmp
+    cd
+    ./configure && make && sudo make install
+)
+popd
+
+luarocks install luacheck

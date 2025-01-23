@@ -1,0 +1,57 @@
+#!/usr/bin/env bash
+
+script_dir=$(cd $(dirname "${BASH_SOURCE[0]}") && pwd)
+dry="0"
+
+while [[ "$#" -gt 0 ]]; do
+  if [[ "$1" == "--dry" ]]; then
+    dry="1"
+  fi
+  shift
+done
+
+log() {
+  if [[ "$dry" == "1" ]]; then
+    echo "[DRY_RUN]: $@"
+  else
+    echo "$@"
+  fi
+}
+
+execute() {
+  log "execute $@"
+  if [[ "$dry" == "1" ]]; then
+    return
+  fi
+  "$@"
+}
+
+log "-----------dev-conf------------"
+
+copy_dir() {
+  from=$1
+  to=$2
+
+  pushd $from > /dev/null
+  find . -mindepth 1 -maxdepth 1 -type d | while read -r dir; do
+    execute rm -rf "$to/$dir"
+    execute cp -r "$dir" "$to/$dir"
+  done
+
+  popd > /dev/null
+}
+
+copy_file() {
+  from=$1
+  to=$2
+  name=$(basename $from)
+
+  execute rm $to/$name
+  execute cp $from $to/$name
+}
+
+copy_dir ./env/.config $XDG_CONFIG_HOME
+copy_dir ./env/.local/scripts $HOME/.local/scripts
+copy_file ./env/.zshrc $HOME
+copy_file ./env/.ready-tmux $HOME
+

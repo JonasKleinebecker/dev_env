@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+
+pushd ~
+(
+  if [[ ! -d flutter ]]; then
+    mkdir flutter
+  fi
+  wget -O flutter.tar.xz https://storage.googleapis.com/flutter_infra_release/releases/stable/linux/flutter_linux_3.27.3-stable.tar.xz
+  tar xf flutter.tar.xz -C flutter --strip-components=1
+  rm flutter.tar.xz
+  yes | flutter doctor --android-licenses
+)
+popd

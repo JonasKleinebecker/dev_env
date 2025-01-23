@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+
+mkdir -p ~/ohmyposh && curl -s https://ohmyposh.dev/install.sh | bash -s -- -d ~/ohmyposh
