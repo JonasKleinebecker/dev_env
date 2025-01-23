@@ -36,6 +36,10 @@ copy_dir() {
   find . -mindepth 1 -maxdepth 1 -type d | while read -r dir; do
     # Remove redundant /./ from the destination directory path
     dest_dir="$to/$(basename "$dir")"
+
+    if [ ! -d "$(dirname "$dest_dir")" ]; then
+      execute mkdir -p "$(dirname "$dest_dir")"
+    fi
     
     execute rm -rf "$dest_dir"
     execute cp -r "$dir" "$dest_dir"
@@ -52,6 +56,10 @@ copy_file() {
   # Remove redundant /./ from the destination file path
   dest_file="$to/$name"
   
+  if [ ! -d "$(dirname "$dest_dir")" ]; then
+    execute mkdir -p "$(dirname "$dest_dir")"
+  fi
+
   execute rm "$dest_file"
   execute cp "$from" "$dest_file"
 }
