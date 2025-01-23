@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+
+sudo apt install -y lua5.1 liblua5.1-0-dev
+
+# luarocks
+wget --output-document /tmp/luarocks.tar.gz https://luarocks.org/releases/luarocks-3.11.0.tar.gz
+tar zxpf /tmp/luarocks.tar.gz -C /tmp
+
+pushd /tmp/luarocks-3.11.0
+(
+    ./configure && make && sudo make install
+)
+popd
+
+sudo luarocks install luacheck
