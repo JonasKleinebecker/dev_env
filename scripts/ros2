@@ -1,6 +1,6 @@
 #!/usr/bin/env bas
 
-sudo apt install software-properties-common
+sudo apt install -y software-properties-common
 sudo add-apt-repository universe
 
 sudo curl -sSL https://raw.githubusercontent.com/ros/rosdistro/master/ros.key -o /usr/share/keyrings/ros-archive-keyring.gpg
@@ -9,6 +9,6 @@ echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/ros-a
 
 sudo apt update
 
-sudo apt install ros-jazzy-desktop
+sudo apt install -y ros-jazzy-desktop
 
 

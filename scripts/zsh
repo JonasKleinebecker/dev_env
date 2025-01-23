@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
 
-sudo apt install zsh
+sudo apt install -y zsh
 hash -r
 sudo chsh -s $(which zsh)
