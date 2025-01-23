@@ -57,7 +57,7 @@ copy_file() {
 }
 
 copy_dir ./env/.config $XDG_CONFIG_HOME
-copy_dir ./env/.local/scripts $HOME/.local/scripts
+copy_dir ./env/.local $HOME/.local
 copy_file ./env/.zshrc $HOME
 copy_file ./env/.ready-tmux $HOME
 
