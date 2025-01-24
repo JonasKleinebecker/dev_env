@@ -61,7 +61,7 @@ export TERM=tmux-256color
 export OPENAI_API_KEY="glhf_70c77985fc02245cb03f76563dddd343"
 export XDG_CONFIG_HOME=$HOME/.config
 
-export ANDROID_HOME=$HOME/Android/
+export ANDROID_HOME=$HOME/android/
 export PATH=$ANDROID/cmdline-tools/latest/bin:$PATH
 export PATH=$ANDROID/platform-tools:$PATH
 export ANDROID_AVD_HOME=$HOME/.config/.android/avd/
