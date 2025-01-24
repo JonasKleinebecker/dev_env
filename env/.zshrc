@@ -55,6 +55,7 @@ preexec() {
 export GALLIUM_DRIVER=d3d12
 
 export PATH="$PATH:/usr/bin"
+export PATH="$PATH:$HOME/fzf/bin"
 export PATH="$PATH:$HOME/.local/scripts"
 export PATH="$PATH:/home/jonas/.local/bin"
 export TERM=tmux-256color
