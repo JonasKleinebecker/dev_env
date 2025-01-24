@@ -65,6 +65,7 @@ export ANDROID_HOME=$HOME/android/
 export PATH=$ANDROID_HOME/cmdline-tools/latest/bin:$PATH
 export PATH=$ANDROID_HOME/platform-tools:$PATH
 export ANDROID_AVD_HOME=$HOME/.config/.android/avd/
+export PATH=$HOME/flutter/bin:$PATH
 
 export ROS_DOMAIN_ID=1
 
