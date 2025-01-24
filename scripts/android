@@ -1,0 +1,26 @@
+#!/usr/bin/env bash
+
+if [ ! -d "$HOME/android" ]; then
+  mkdir $HOME/android
+fi
+
+wget https://dl.google.com/android/repository/commandlinetools-linux-11076708_latest.zip -O commandlinetools-linux.zip
+unzip commandlinetools-linux.zip -d $HOME/android
+rm commandlinetools-linux.zip
+
+pushd $HOME/android/cmdline-tools > /dev/null
+(
+  mkdir latest
+  mv * latest 
+)
+popd > /dev/null
+
+yes | sdkmanager --licenses
+
+sdkmanager "platform-tools"
+sdkmanager "build-tools;35.0.1"
+sdkmanager "system-images;android-35;default;x86_64"
+sdkmanager "platforms;android-35"
+
+sdkmanager "emulator"
+avdmanager -s create avd -n pixel -k "system-images;android-35;default;x86_64"
