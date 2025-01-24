@@ -4,4 +4,4 @@ sudo apt -y update
 sudo apt -y install git zip unzip curl xutils ripgrep xclip jq tldr python3-pip
 
 git clone --depth 1 https://github.com/junegunn/fzf.git $HOME/fzf
-$HOME/fzf/install
+yes | $HOME/fzf/install
