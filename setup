@@ -1,0 +1,20 @@
+#!/usr/bin/env bash
+
+sudo apt update && sudo apt upgrade -y
+./run_env
+
+#only to update environment variables
+source ~/.zshrc
+./run
+
+# Run Neovim in headless mode to install plugins and tools
+echo "Running Neovim to install plugins and Mason tools..."
+nvim --headless +Lazy! sync +MasonInstallAll +qa
+nvim --headless +"Codeium Auth" +qa
+
+echo "Neovim setup complete!"
+
+zsh
+
+echo "Setup complete!"
+
