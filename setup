@@ -9,7 +9,7 @@ source ~/.zshrc
 
 # Run Neovim in headless mode to install plugins and tools
 echo "Running Neovim to install plugins and Mason tools..."
-nvim --headless +Lazy! sync +Mason +qa
+nvim --headless +Lazy! sync +MasonToolsInstall sync +qa
 echo "Neovim setup complete!"
 
 zsh
