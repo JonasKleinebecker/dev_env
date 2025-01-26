@@ -59,7 +59,7 @@ export PATH="$PATH:$HOME/fzf/bin"
 export PATH="$PATH:$HOME/.local/scripts"
 export PATH="$PATH:/home/jonas/.local/bin"
 export TERM=tmux-256color
-export OPENAI_API_KEY="glhf_70c77985fc02245cb03f76563dddd343"
+export OPENAI_API_KEY="<PASTE_API_KEY_HERE>"
 export XDG_CONFIG_HOME=$HOME/.config
 
 export ANDROID_HOME=$HOME/android/
