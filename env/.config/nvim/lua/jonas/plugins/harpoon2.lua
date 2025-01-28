@@ -7,10 +7,14 @@ return {
 
 		harpoon:setup()
 
-		vim.keymap.set("n", "<leader>h", function()
+		vim.keymap.set("n", "<leader>ha", function()
 			harpoon:list():add()
 		end, { desc = "Add a file to the Harpoon list" })
-		vim.keymap.set("n", "<leader>tl", function()
+		vim.keymap.set("n", "<leader>hx", function()
+			harpoon:list():remove()
+		end, { desc = "Remove a file from the Harpoon list" })
+
+		vim.keymap.set("n", "<leader>hl", function()
 			harpoon.ui:toggle_quick_menu(harpoon:list())
 		end, { desc = "Toggle the Harpoon quick menu" })
 
@@ -27,10 +31,10 @@ return {
 			harpoon:list():select(4)
 		end, { desc = "Select the fourth file in the Harpoon list" })
 
-		vim.keymap.set("n", "<leader>tp", function()
+		vim.keymap.set("n", "<leader>hp", function()
 			harpoon:list():prev()
 		end, { desc = "Go to the previous file in the Harpoon list" })
-		vim.keymap.set("n", "<leader>tn", function()
+		vim.keymap.set("n", "<leader>hn", function()
 			harpoon:list():next()
 		end, { desc = "Go to the next file in the Harpoon list" })
 	end,
