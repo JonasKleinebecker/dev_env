@@ -93,6 +93,9 @@ zstyle ':completion:*' menu no
 zstyle ':fzf-tab:complete:cd:*' fzf-preview 'ls --color $realpath'
 zstyle ':fzf-tab:complete:__zoxide_z:*' fzf-preview 'ls --color $realpath'
 
+#make tmux XDG compliant
+alias tmux='tmux -f "$XDG_CONFIG_HOME"/tmux/tmux.conf'
+
 alias ls='ls --color'
 alias la= 'ls -a --color'
 alias vi='nvim'
