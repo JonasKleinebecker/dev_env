@@ -52,6 +52,8 @@ preexec() {
   echo -ne '\e[5 q'; # Use beam shape cursor for each new prompt.
 }
 
+export EDITOR=nvim
+
 export GALLIUM_DRIVER=d3d12
 
 export PATH="$PATH:/usr/bin"
