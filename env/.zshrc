@@ -61,6 +61,7 @@ export PATH="$PATH:/home/jonas/.local/bin"
 export TERM=tmux-256color
 export OPENAI_API_KEY="<PASTE_API_KEY_HERE>"
 export XDG_CONFIG_HOME=$HOME/.config
+export TMUX_PLUGIN_MANAGER_PATH="$HOME/.config/tmux/plugins"
 
 export ANDROID_HOME=$HOME/android/
 export PATH=$ANDROID_HOME/cmdline-tools/latest/bin:$PATH
