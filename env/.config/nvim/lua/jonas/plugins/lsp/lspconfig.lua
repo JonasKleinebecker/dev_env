@@ -26,6 +26,7 @@ return {
 			},
 			settings = {
 				dart = {
+					lineLength = 120,
 					completeFunctionCalls = true,
 					showTodos = true,
 				},
