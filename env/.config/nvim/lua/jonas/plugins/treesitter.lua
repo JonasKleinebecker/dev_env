@@ -40,6 +40,7 @@ return {
 				"vimdoc",
 				"python",
 				"c",
+				"kotlin",
 			},
 			incremental_selection = {
 				enable = true,
