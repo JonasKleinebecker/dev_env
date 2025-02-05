@@ -18,21 +18,6 @@ return {
 
 		local keymap = vim.keymap -- for conciseness
 
-		lspconfig.dartls.setup({
-			init_options = {
-				closingLabels = true,
-				flutterOutline = true,
-				outline = true,
-			},
-			settings = {
-				dart = {
-					lineLength = 120,
-					completeFunctionCalls = true,
-					showTodos = true,
-				},
-			},
-		})
-
 		vim.api.nvim_create_autocmd("LspAttach", {
 			group = vim.api.nvim_create_augroup("UserLspConfig", {}),
 			callback = function(ev)
@@ -79,6 +64,9 @@ return {
 
 				opts.desc = "Restart LSP"
 				keymap.set("n", "<leader>rs", ":LspRestart<CR>", opts) -- mapping to restart lsp if necessary
+
+				opts.desc = "Restart Flutter"
+				keymap.set({ "n", "v" }, "<leader>rf", ":FlutterRestart<CR>", opts) -- Restart running flutter application
 			end,
 		})
 
@@ -93,6 +81,16 @@ return {
 			vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
 		end
 
+		require("flutter-tools").setup({
+			lsp = {
+				capabilities = capabilities,
+				settings = {
+					lineLength = vim.o.textwidth,
+					renameFilesWithClasses = "always",
+					documentation = "full",
+				},
+			},
+		})
 		mason_lspconfig.setup_handlers({
 			-- default handler for installed servers
 			function(server_name)
