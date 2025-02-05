@@ -91,11 +91,25 @@ return {
 				},
 			},
 		})
+
+		local jdk_home = "/usr/lib/jvm/java-17-openjdk-amd64"
 		mason_lspconfig.setup_handlers({
 			-- default handler for installed servers
 			function(server_name)
 				lspconfig[server_name].setup({
 					capabilities = capabilities,
+				})
+			end,
+			["kotlin_language_server"] = function()
+				lspconfig["kotlin_language_server"].setup({
+					capabilities = capabilities,
+					init_options = {
+						storagePath = vim.fn.resolve(vim.fn.stdpath("cache") .. "/kotlin_language_server"),
+					},
+					cmd_env = {
+						PATH = jdk_home .. "/bin:" .. vim.env.PATH,
+						JAVA_HOME = jdk_home,
+					},
 				})
 			end,
 			["emmet_ls"] = function()
