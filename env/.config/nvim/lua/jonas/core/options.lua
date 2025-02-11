@@ -31,11 +31,29 @@ opt.signcolumn = "yes" -- show sign column so that text doesn't shift
 opt.backspace = "indent,eol,start" -- allow backspace on indent, end of line or insert mode start position
 
 -- clipboard
-opt.clipboard:append("unnamedplus") -- use system clipboard as default register
+-- opt.clipboard:append("unnamedplus") -- use system clipboard as default register
 
 -- split windows
 opt.splitright = true -- split vertical window to the right
 opt.splitbelow = true -- split horizontal window to the bottom
 
+-- Save undo history
+vim.opt.undofile = true
+
+-- Keep signcolumn on by default
+vim.opt.signcolumn = "yes"
+
 -- turn off swapfile
 opt.swapfile = false
+
+-- Sets how neovim will display certain whitespace characters in the editor.
+--  See `:help 'list'`
+--  and `:help 'listchars'`
+vim.opt.list = true
+vim.opt.listchars = { tab = "» ", trail = "·", nbsp = "␣" }
+
+-- Preview substitutions live, as you type!
+vim.opt.inccommand = "split"
+
+-- Minimal number of screen lines to keep above and below the cursor.
+vim.opt.scrolloff = 10
