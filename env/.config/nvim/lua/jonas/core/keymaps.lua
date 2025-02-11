@@ -29,6 +29,18 @@ keymap.set("n", "<leader>sh", "<C-w>s", { desc = "Split window horizontally" }) 
 keymap.set("n", "<leader>se", "<C-w>=", { desc = "Make splits equal size" }) -- make split windows equal width & height
 keymap.set("n", "<leader>sx", "<cmd>close<CR>", { desc = "Close current split" }) -- close current split window
 
+-- quickfix list
+keymap.set("n", "<leader>q", vim.diagnostic.setloclist, { desc = "Open diagnostic Quickfix list" })
+
+-- highlight on yank
+vim.api.nvim_create_autocmd("TextYankPost", {
+	desc = "Highlight when yanking (copying) text",
+	group = vim.api.nvim_create_augroup("kickstart-highlight-yank", { clear = true }),
+	callback = function()
+		vim.highlight.on_yank()
+	end,
+})
+
 -- keymap.set("n", "<leader>tx", "<cmd>bd<CR>", { desc = "Close current Buffer" })
 -- keymap.set("n", "<leader>tn", "<cmd>bn<CR>", { desc = "Go to next Buffer" })
 -- keymap.set("n", "<leader>tp", "<cmd>bp<CR>", { desc = "Go to previous Buffer" })
