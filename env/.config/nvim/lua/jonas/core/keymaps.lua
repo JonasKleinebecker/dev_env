@@ -1,16 +1,22 @@
 vim.g.mapleader = " "
 
--- Remap jump actions to also center on cursor
-vim.keymap.set("n", "<C-d>", "<C-d>zz")
-vim.keymap.set("n", "<C-u>", "<C-u>zz")
-vim.keymap.set("n", "n", "nzzzv")
-vim.keymap.set("n", "N", "Nzzzv")
-
 local keymap = vim.keymap -- for conciseness
+
+-- Remap jump actions to also center on cursor
+keymap.set("n", "<C-d>", "<C-d>zz")
+keymap.set("n", "<C-u>", "<C-u>zz")
+keymap.set("n", "n", "nzzzv")
+keymap.set("n", "N", "Nzzzv")
 
 keymap.set("i", "jk", "<ESC>", { desc = "Exit insert mode with jk" })
 
 keymap.set("n", "<leader>nh", ":nohl<CR>", { desc = "Clear search highlights" })
+
+-- replace selected Text without changing register
+vim.keymap.set("x", "<leader>p", [["_dP]])
+
+-- yank to system clipboard
+vim.keymap.set({"n", "v"}, "<leader>y", [["+y]])
 
 -- Remap J and K to 5j and 5k
 keymap.set({ "v", "n" }, "J", "5j", { desc = "Move down 5 lines" })
