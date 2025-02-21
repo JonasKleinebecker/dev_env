@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 sudo apt -y update
-sudo apt -y install git npm zip unzip curl xutils ripgrep xclip jq tldr python3-pip python3-venv
+sudo apt -y install git npm zip unzip curl xutils ripgrep xclip jq tldr python3-pip python3-venv net-tools
 
 git clone --depth 1 https://github.com/junegunn/fzf.git $HOME/fzf
 yes | $HOME/fzf/install
