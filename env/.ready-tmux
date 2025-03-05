@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 
-tmux rename-window "zsh"
+tmux rename-window "neovim"
 tmux neww 
 tmux select-window -t :2
-tmux rename-window "neovim"
+tmux rename-window "zsh"
 tmux select-window -t :1
-tmux send-keys -t :2 "nvim ." ^M
+tmux send-keys -t :1 "nvim" ^M
