@@ -12,11 +12,14 @@ keymap.set("i", "jk", "<ESC>", { desc = "Exit insert mode with jk" })
 
 keymap.set("n", "<leader>nh", ":nohl<CR>", { desc = "Clear search highlights" })
 
--- replace selected Text without changing register
-vim.keymap.set("x", "<leader>p", [["_dP]])
+-- paste from system clipboard
+vim.keymap.set({ "n", "v" }, "<leader>p", [["+p]], { desc = "Paste from system clipboard" })
+
+-- replace selected text without overwriting default register
+vim.keymap.set("x", "<leader>P", [["_dP]])
 
 -- yank to system clipboard
-vim.keymap.set({"n", "v"}, "<leader>y", [["+y]])
+vim.keymap.set({ "n", "v" }, "<leader>y", [["+y]], { desc = "Yank to system clipboard" })
 
 -- Remap J and K to 5j and 5k
 keymap.set({ "v", "n" }, "J", "5j", { desc = "Move down 5 lines" })
