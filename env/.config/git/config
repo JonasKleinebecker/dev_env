@@ -3,3 +3,7 @@
 	name = Jonas Kleinebecker
 [init]
 	defaultBranch = main
+[rerere]
+  enabled = true
+[core]
+excludesfile = ~/.config/git/.gitignore_global
