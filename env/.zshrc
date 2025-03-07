@@ -7,8 +7,6 @@ fi
 
 source "${ZINIT_HOME}/zinit.zsh"
 
-source "/opt/ros/jazzy/setup.zsh"
-
 zinit light zsh-users/zsh-syntax-highlighting
 zinit light zsh-users/zsh-completions
 zinit light zsh-users/zsh-autosuggestions
