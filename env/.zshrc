@@ -97,10 +97,11 @@ zstyle ':fzf-tab:complete:__zoxide_z:*' fzf-preview 'ls --color $realpath'
 alias tmux='tmux -f "$XDG_CONFIG_HOME"/tmux/tmux.conf'
 
 alias ls='ls --color'
-alias la= 'ls -a --color'
+alias la='ls -a --color'
+alias ll='ls -la --color'
 alias vi='nvim'
 
-eval "$(zoxide init zsh)"
+eval "$(zoxide init zsh --cmd k)"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 eval "$(fzf --zsh)"
