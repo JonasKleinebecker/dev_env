@@ -36,6 +36,7 @@ return {
           return not (full_path:match(".venv/") or full_path:match("venv/"))
 				end,
 			}),
+      nls.builtins.formatting.stylua,
 			nls.builtins.formatting.prettier.with({
 				filetypes = {
 					"json",
