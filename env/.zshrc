@@ -105,6 +105,9 @@ alias vi='nvim'
 alias of='create_obsidian_note.sh fact_note'
 alias oc='create_obsidian_note.sh code_note'
 alias oq='create_obsidian_note.sh quote_note'
+alias ob='create_obsidian_note.sh blank_note'
+alias ot='create_obsidian_note.sh tool_note'
+alias og='create_obsidian_note.sh guide_note'
 
 eval "$(zoxide init zsh --cmd k)"
 
