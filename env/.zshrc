@@ -101,6 +101,11 @@ alias la='ls -a --color'
 alias ll='ls -la --color'
 alias vi='nvim'
 
+#obsidian alias
+alias of='create_obsidian_note.sh fact_note'
+alias oc='create_obsidian_note.sh code_note'
+alias oq='create_obsidian_note.sh quote_note'
+
 eval "$(zoxide init zsh --cmd k)"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

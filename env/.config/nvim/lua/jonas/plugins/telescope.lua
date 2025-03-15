@@ -131,5 +131,27 @@ return {
 		keymap.set("n", "<leader>fC", function()
 			tel_builtin.grep_string({ hidden = true })
 		end, { desc = "Find string under cursor in cwd, including hidden files" })
+		keymap.set("n", "<leader>fof", function()
+			tel_builtin.find_files({
+				cwd = "/mnt/g/Meine Ablage/Obsidian/Main_vault/",
+			})
+		end, { desc = "Fuzzy find files in Obsidian vault" })
+		keymap.set("n", "<leader>fos", function()
+			tel_builtin.live_grep({
+				cwd = "/mnt/g/Meine Ablage/Obsidian/Main_vault/",
+			})
+		end, { desc = "Find string in Obsidian vault" })
+		keymap.set("n", "<leader>foF", function()
+			tel_builtin.find_files({
+				cwd = "/mnt/g/Meine Ablage/Obsidian/Main_vault/",
+				hidden = true,
+			})
+		end, { desc = "Fuzzy find files in Obsidian vault, including hidden files" })
+		keymap.set("n", "<leader>foS", function()
+			tel_builtin.live_grep({
+				cwd = "/mnt/g/Meine Ablage/Obsidian/Main_vault/",
+				hidden = true,
+			})
+		end, { desc = "Find string in Obsidian vault, including hidden files" })
 	end,
 }
