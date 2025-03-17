@@ -50,6 +50,8 @@ preexec() {
   echo -ne '\e[5 q'; # Use beam shape cursor for each new prompt.
 }
 
+export MANPAGER="nvim -c 'Man!' -c 'set number relativenumber' -"
+
 export EDITOR=nvim
 
 export GALLIUM_DRIVER=d3d12
