@@ -41,8 +41,9 @@ return {
 				filetypes = {
 					"json",
 					"yaml",
-					-- "markdown",
+					"markdown",
 				},
+				extra_args = { "--print-width", "80" },
 			}),
 		}
 		local augroup = vim.api.nvim_create_augroup("LspFormatting", {})

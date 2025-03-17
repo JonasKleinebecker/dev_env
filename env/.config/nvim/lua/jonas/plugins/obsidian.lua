@@ -1,3 +1,38 @@
+function move_to_hubs_folder()
+	local file_path = vim.fn.expand("%:p") -- Get the full path of the current file
+	local file_name = vim.fn.expand("%:t") -- Get the current file name
+
+	local title_line = vim.fn.getline(1)
+	local title = title_line:match("^#%s*(.+)") -- Extract the title after the '#'
+
+	if not title then
+		print("Error: No title found in the first line of the file.")
+		return
+	end
+
+	local new_file_name = title:gsub(" ", "-") .. ".md"
+
+	local obsidian_vault = "/mnt/g/Meine Ablage/Obsidian/Main_vault"
+	local hubs_folder = obsidian_vault .. "/hubs"
+
+	-- Create the hubs folder if it doesn't exist
+	if vim.fn.isdirectory(hubs_folder) == 0 then
+		vim.fn.mkdir(hubs_folder, "p")
+	end
+
+	local dest_path = hubs_folder .. "/" .. new_file_name
+
+	local success, err = os.rename(file_path, dest_path)
+	if not success then
+		print("Error moving file: " .. err)
+		return
+	end
+
+	-- Close the buffer
+	vim.cmd("bd")
+	print("Moved file to: " .. dest_path)
+end
+
 function move_to_tag_folder()
 	local file_path = vim.fn.expand("%:p")
 	local file_name = vim.fn.expand("%:t")
@@ -123,7 +158,18 @@ vim.api.nvim_set_keymap(
 	":lua delete_current_file()<CR>",
 	{ noremap = true, silent = true, desc = "Delete current file" }
 )
-
+vim.api.nvim_set_keymap(
+	"n",
+	"<leader>oh",
+	":lua move_to_hubs_folder()<CR>",
+	{ noremap = true, silent = true, desc = "Move current note to hubs folder and rename it" }
+)
+vim.api.nvim_set_keymap(
+	"n",
+	"<leader>oat",
+	":ObsidianTemplate blank_note<CR>",
+	{ noremap = true, silent = true, desc = "Apply blank_note template to the current buffer" }
+)
 vim.api.nvim_set_keymap(
 	"n",
 	"<leader>of",

@@ -57,3 +57,12 @@ vim.opt.inccommand = "split"
 
 -- Minimal number of screen lines to keep above and below the cursor.
 vim.opt.scrolloff = 10
+
+vim.api.nvim_create_autocmd("FileType", {
+	pattern = "markdown",
+	callback = function()
+		vim.opt.textwidth = 80 -- Set your desired maximum line length
+		vim.opt.wrap = true -- Enable soft wrapping
+		vim.opt.linebreak = true -- Break lines at word boundaries
+	end,
+})
